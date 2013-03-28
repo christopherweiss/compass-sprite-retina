@@ -1,2 +1,4 @@
-Compass-Retina-Sprites
-======================
+Compass Retina and Normal Sprite Mixin
+======================================
+
+Syntax: SASS :-)
