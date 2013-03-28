@@ -2,10 +2,25 @@
 // *    @file mxixins
 // *    @description usage for all sprites 
 // ****************************************************************
+
+/****************************************************************/
+/* @description wrapper to get the image from the spritemap
+/* @param {string} - image name
+/* @param {integer} - x axis
+/* @param {integer} - y axis
+/****************************************************************/
 =icons-sprite($name, $x: 0, $y: 0)
   +retina-sprite($name, $x, $y, $sprites, $sprites2x)
  
-
+/****************************************************************/
+/* @description gets the file from the sprite map that we defined
+/*              in the sprites and switch between retina and normal
+/* @param {string} - image name
+/* @param {map} - sprite map
+/* @param {map} - retina sprite map
+/* @param {bool} - set the dimensions, default true
+/* @param {integer} - set the padding between the images
+/****************************************************************/
 =retina-sprite($name, $x, $y, $sprites, $sprites2x, $dimensions: true, $padding: 0)
   @if $dimensions == true
     +sprite-dimensions($sprites, $name)
