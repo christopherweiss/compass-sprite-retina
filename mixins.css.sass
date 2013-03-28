@@ -1,0 +1,26 @@
+// ****************************************************************
+// *    @file mxixins
+// *    @description usage for all sprites 
+// ****************************************************************
+=icons-sprite($name, $x: 0, $y: 0)
+  +retina-sprite($name, $x, $y, $sprites, $sprites2x)
+ 
+
+=retina-sprite($name, $x, $y, $sprites, $sprites2x, $dimensions: true, $padding: 0)
+  @if $dimensions == true
+    +sprite-dimensions($sprites, $name)
+ 
+  background-image: sprite-url($sprites)
+  background-position: sprite-position($sprites, $name, $x, $y)
+  background-repeat: no-repeat
+ 
+  @if $padding > 0
+    padding: $padding
+ 
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5)
+    &
+      $position: sprite-position($sprites2x, $name, $x, $y)
+      background-image: sprite-url($sprites2x)
+      background-position: nth($position, 1) nth($position, 2)/2
+      $background_size: ceil(image-width(sprite-path($sprites2x)) / 2) / 1
+      +background-size($background_size auto)
